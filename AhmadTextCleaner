@@ -1,0 +1,16 @@
+import re
+
+def clean_text(text):
+    # حذف فاصله‌های اضافی
+    text = re.sub(r'\s+', ' ', text)
+    # حذف علائم غیرضروری
+    text = re.sub(r'[^\w\s\u0600-\u06FF]', '', text)
+    # حذف فاصله ابتدا و انتها
+    return text.strip()
+
+if __name__ == "__main__":
+    print("🧹 AhmadTextCleaner - پاک‌سازی متن احمد جان 😤")
+    user_input = input("📝 یه متن وارد کن: ")
+    cleaned = clean_text(user_input)
+    print("✅ متن پاک‌شده:")
+    print(cleaned)
